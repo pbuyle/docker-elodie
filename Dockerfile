@@ -20,7 +20,6 @@ RUN apk --update upgrade && \
 WORKDIR /wheels
 RUN git clone https://github.com/jmathai/elodie.git /elodie && \
     pip wheel --no-cache-dir -r /elodie/requirements.txt && \
-    pip wheel --no-cache-dir six && \
     rm -rf /elodie/.git
 
 FROM python:3-alpine
@@ -37,7 +36,6 @@ COPY --from=builder /elodie /elodie
 
 WORKDIR /elodie
 RUN pip install --no-cache-dir -r requirements.txt -f /wheels && \
-    pip install --no-cache-dir six -f /wheels && \
     rm -rf /wheels
     
 COPY entrypoint.sh /entrypoint.sh
