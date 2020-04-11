@@ -9,7 +9,7 @@ IMPORT_OPTIONS="--destination ${DESTINATION}"
 
 if [ "${TRASH:-}" ]; then
   mkdir -p "${XDG_DATA_HOME:-~/.local/share}"
-  ln -s "${TRASH}" "${XDG_DATA_HOME:-${HOME}/.local/share}/Trash"
+  ln -s "${TRASH}" "${XDG_DATA_HOME:-${HOME}/.local/share/Trash"
   IMPORT_OPTIONS="${IMPORT_OPTIONS} --trash"
 fi
 
